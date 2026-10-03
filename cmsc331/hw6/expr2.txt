@@ -1,0 +1,95 @@
+====================================================
+Line #1: 7 2 < B[] 
+====================================================
+   -------------------------------------------------
+   *** Error: Index for array B cannot be EBul
+   7 2 < 
+
+
+====================================================
+Line #2: 3 7 2 < + x 4 + && 
+====================================================
+   -------------------------------------------------
+   *** Error: Left subtree of AND must be EBul
+   3 7 2 < + 
+   -------------------------------------------------
+   *** Error: Right subtree of AND must be EBul
+   x 4 + 
+   -------------------------------------------------
+   *** Error: Right subtree of PLUS must be EInt
+   7 2 < 
+
+
+====================================================
+Line #3: w? x? - y? z? * + 
+====================================================
+   -------------------------------------------------
+   *** Error: Left subtree of MINUS must be EInt
+   w? 
+   -------------------------------------------------
+   *** Error: Right subtree of MINUS must be EInt
+   x? 
+   -------------------------------------------------
+   *** Error: Left subtree of TIMES must be EInt
+   y? 
+   -------------------------------------------------
+   *** Error: Right subtree of TIMES must be EInt
+   z? 
+
+
+====================================================
+Line #4: 7 4 - x - false != 
+====================================================
+   -------------------------------------------------
+   *** Error: Left & right subtrees of != have different types
+   7 4 - x - false != 
+
+
+====================================================
+Line #5: x? y? && a 3 + == 
+====================================================
+   -------------------------------------------------
+   *** Error: Left & right subtrees of == have different types
+   x? y? && a 3 + == 
+
+
+====================================================
+Line #6: 7 true + x? B[] 3 5 4 && + @callme 
+====================================================
+   -------------------------------------------------
+   *** Error: In function call to callme: Right subtree of PLUS must be EInt
+   true 
+   -------------------------------------------------
+   *** Error: In function call to callme: Index for array B cannot be EBul
+   x? 
+   -------------------------------------------------
+   *** Error: In function call to callme: Right subtree of PLUS must be EInt
+   5 4 && 
+   -------------------------------------------------
+   *** Error: In function call to callme: Left subtree of AND must be EBul
+   5 
+   -------------------------------------------------
+   *** Error: In function call to callme: Right subtree of AND must be EBul
+   4 
+
+
+====================================================
+Line #7: 7 true + x? B[] 3 5 4 && + @again @callme 
+====================================================
+   -------------------------------------------------
+   *** Error: In function call to callme: Right subtree of PLUS must be EInt
+   true 
+   -------------------------------------------------
+   *** Error: In function call to callme: In function call to again: Index for array B cannot be EBul
+   x? 
+   -------------------------------------------------
+   *** Error: In function call to callme: In function call to again: Right subtree of PLUS must be EInt
+   5 4 && 
+   -------------------------------------------------
+   *** Error: In function call to callme: In function call to again: Left subtree of AND must be EBul
+   5 
+   -------------------------------------------------
+   *** Error: In function call to callme: In function call to again: Right subtree of AND must be EBul
+   4 
+
+

@@ -1,0 +1,147 @@
+Post order: 3 
+TT EInt (CONST 3)
+
+Post order: 58 
+TT EInt (CONST 58)
+
+Post order: true 
+TT EBul (CONST (-1))
+
+Post order: false 
+TT EBul (CONST 0)
+
+Post order: x 
+TT EInt (RVALUE "x" (LocalVarMode 0))
+
+Post order: &y 
+TT EInt (RVALUE "y" GlobalVarMode)
+
+Post order: flag? 
+TT EBul (RVALUE "flag" (LocalVarMode 0))
+
+Post order: 3 ~ 
+TT EInt (NEG (TT EInt (CONST 3)))
+
+Post order: 3 4 + 
+TT EInt (PLUS (TT EInt (CONST 3)) (TT EInt (CONST 4)))
+
+Post order: 3 x + 
+TT EInt (PLUS (TT EInt (CONST 3)) (TT EInt (RVALUE "x" (LocalVarMode 0))))
+
+Post order: 17 Array[] 
+TT EInt (RVALUE "Array" (LocalArrayItemMode 0 (TT EInt (CONST 17))))
+
+Post order: 17 Flags?[] 
+TT EBul (RVALUE "Flags" (LocalArrayItemMode 0 (TT EInt (CONST 17))))
+
+Post order: 17 &GlobalArray[] 
+TT EInt (RVALUE "GlobalArray" (GlobalArrayItemMode (TT EInt (CONST 17))))
+
+Post order: 17 &GlobalFlags?[] 
+TT EBul (RVALUE "GlobalFlags" (GlobalArrayItemMode (TT EInt (CONST 17))))
+
+Post order: maybe? @callme 
+TT EInt (FUNC "callme" [TT EBul (RVALUE "maybe" (LocalVarMode 0))])
+
+Post order: maybe? 867 5309 @callme 
+TT EInt (FUNC "callme" [TT EBul (RVALUE "maybe" (LocalVarMode 0)),TT EInt (CONST 867),TT EInt (CONST 5309)])
+
+Post order: @callme 
+TT EInt (FUNC "callme" [])
+
+Post order: maybe @callme? 
+TT EBul (FUNC "callme" [TT EInt (RVALUE "maybe" (LocalVarMode 0))])
+
+Post order: maybe 867 5309 @callme? 
+TT EBul (FUNC "callme" [TT EInt (RVALUE "maybe" (LocalVarMode 0)),TT EInt (CONST 867),TT EInt (CONST 5309)])
+
+Post order: @callme? 
+TT EBul (FUNC "callme" [])
+
+Post order: 3 4 * 5 * 6 * 
+TT EInt (TIMES (TT EInt (TIMES (TT EInt (TIMES (TT EInt (CONST 3)) (TT EInt (CONST 4)))) (TT EInt (CONST 5)))) (TT EInt (CONST 6)))
+
+Post order: 3 x * &y * 6 * 
+TT EInt (TIMES (TT EInt (TIMES (TT EInt (TIMES (TT EInt (CONST 3)) (TT EInt (RVALUE "x" (LocalVarMode 0))))) (TT EInt (RVALUE "y" GlobalVarMode)))) (TT EInt (CONST 6)))
+
+Post order: 64 8 / 4 / 2 / 
+TT EInt (DIVIDE (TT EInt (DIVIDE (TT EInt (DIVIDE (TT EInt (CONST 64)) (TT EInt (CONST 8)))) (TT EInt (CONST 4)))) (TT EInt (CONST 2)))
+
+Post order: 64 x / 4 / 2 / 
+TT EInt (DIVIDE (TT EInt (DIVIDE (TT EInt (DIVIDE (TT EInt (CONST 64)) (TT EInt (RVALUE "x" (LocalVarMode 0))))) (TT EInt (CONST 4)))) (TT EInt (CONST 2)))
+
+Post order: 17 &B[] i C[] * 
+TT EInt (TIMES (TT EInt (RVALUE "B" (GlobalArrayItemMode (TT EInt (CONST 17))))) (TT EInt (RVALUE "C" (LocalArrayItemMode 0 (TT EInt (RVALUE "i" (LocalVarMode 0)))))))
+
+Post order: 3 4 + 5 + 
+TT EInt (PLUS (TT EInt (PLUS (TT EInt (CONST 3)) (TT EInt (CONST 4)))) (TT EInt (CONST 5)))
+
+Post order: 3 x + &y + 
+TT EInt (PLUS (TT EInt (PLUS (TT EInt (CONST 3)) (TT EInt (RVALUE "x" (LocalVarMode 0))))) (TT EInt (RVALUE "y" GlobalVarMode)))
+
+Post order: 18 6 - 2 - 1 - 
+TT EInt (MINUS (TT EInt (MINUS (TT EInt (MINUS (TT EInt (CONST 18)) (TT EInt (CONST 6)))) (TT EInt (CONST 2)))) (TT EInt (CONST 1)))
+
+Post order: 18 4 A[] - 2 - z C[] - 
+TT EInt (MINUS (TT EInt (MINUS (TT EInt (MINUS (TT EInt (CONST 18)) (TT EInt (RVALUE "A" (LocalArrayItemMode 0 (TT EInt (CONST 4))))))) (TT EInt (CONST 2)))) (TT EInt (RVALUE "C" (LocalArrayItemMode 0 (TT EInt (RVALUE "z" (LocalVarMode 0)))))))
+
+Post order: 3 4 * 5 * 6 * 7 8 * 9 * 10 * 11 * + 256 16 / 4 / 2 / - 
+TT EInt (MINUS (TT EInt (PLUS (TT EInt (TIMES (TT EInt (TIMES (TT EInt (TIMES (TT EInt (CONST 3)) (TT EInt (CONST 4)))) (TT EInt (CONST 5)))) (TT EInt (CONST 6)))) (TT EInt (TIMES (TT EInt (TIMES (TT EInt (TIMES (TT EInt (TIMES (TT EInt (CONST 7)) (TT EInt (CONST 8)))) (TT EInt (CONST 9)))) (TT EInt (CONST 10)))) (TT EInt (CONST 11)))))) (TT EInt (DIVIDE (TT EInt (DIVIDE (TT EInt (DIVIDE (TT EInt (CONST 256)) (TT EInt (CONST 16)))) (TT EInt (CONST 4)))) (TT EInt (CONST 2)))))
+
+Post order: 3 4 * 5 * 6 7 + * 8 * 9 + 10 + 11 + 256 16 / 4 / 2 / - 
+TT EInt (MINUS (TT EInt (PLUS (TT EInt (PLUS (TT EInt (PLUS (TT EInt (TIMES (TT EInt (TIMES (TT EInt (TIMES (TT EInt (TIMES (TT EInt (CONST 3)) (TT EInt (CONST 4)))) (TT EInt (CONST 5)))) (TT EInt (PLUS (TT EInt (CONST 6)) (TT EInt (CONST 7)))))) (TT EInt (CONST 8)))) (TT EInt (CONST 9)))) (TT EInt (CONST 10)))) (TT EInt (CONST 11)))) (TT EInt (DIVIDE (TT EInt (DIVIDE (TT EInt (DIVIDE (TT EInt (CONST 256)) (TT EInt (CONST 16)))) (TT EInt (CONST 4)))) (TT EInt (CONST 2)))))
+
+Post order: 3 4 @foo 7 @bar + 9 + * k @index A[] 2 / - 
+TT EInt (MINUS (TT EInt (TIMES (TT EInt (FUNC "foo" [TT EInt (CONST 3),TT EInt (CONST 4)])) (TT EInt (PLUS (TT EInt (PLUS (TT EInt (CONST 7)) (TT EInt (FUNC "bar" [])))) (TT EInt (CONST 9)))))) (TT EInt (DIVIDE (TT EInt (RVALUE "A" (LocalArrayItemMode 0 (TT EInt (FUNC "index" [TT EInt (RVALUE "k" (LocalVarMode 0))]))))) (TT EInt (CONST 2)))))
+
+Post order: 3 5 < 
+TT EBul (ETLt (TT EInt (CONST 3)) (TT EInt (CONST 5)))
+
+Post order: 3 5 <= 
+TT EBul (ETLtEq (TT EInt (CONST 3)) (TT EInt (CONST 5)))
+
+Post order: 3 5 == 
+TT EBul (ETEq (TT EInt (CONST 3)) (TT EInt (CONST 5)))
+
+Post order: 3 5 != 
+TT EBul (ETNeq (TT EInt (CONST 3)) (TT EInt (CONST 5)))
+
+Post order: 3 5 >= 
+TT EBul (ETGtEq (TT EInt (CONST 3)) (TT EInt (CONST 5)))
+
+Post order: 3 5 > 
+TT EBul (ETGt (TT EInt (CONST 3)) (TT EInt (CONST 5)))
+
+Post order: true false == 
+TT EBul (ETEq (TT EBul (CONST (-1))) (TT EBul (CONST 0)))
+
+Post order: true false != 
+TT EBul (ETNeq (TT EBul (CONST (-1))) (TT EBul (CONST 0)))
+
+Post order: x? false == 
+TT EBul (ETEq (TT EBul (RVALUE "x" (LocalVarMode 0))) (TT EBul (CONST 0)))
+
+Post order: 3 x < x 15 < && 
+TT EBul (AND (TT EBul (ETLt (TT EInt (CONST 3)) (TT EInt (RVALUE "x" (LocalVarMode 0))))) (TT EBul (ETLt (TT EInt (RVALUE "x" (LocalVarMode 0))) (TT EInt (CONST 15)))))
+
+Post order: 3 x < x 15 < && 15 y <= && y 29 < && 
+TT EBul (AND (TT EBul (AND (TT EBul (AND (TT EBul (ETLt (TT EInt (CONST 3)) (TT EInt (RVALUE "x" (LocalVarMode 0))))) (TT EBul (ETLt (TT EInt (RVALUE "x" (LocalVarMode 0))) (TT EInt (CONST 15)))))) (TT EBul (ETLtEq (TT EInt (CONST 15)) (TT EInt (RVALUE "y" (LocalVarMode 0))))))) (TT EBul (ETLt (TT EInt (RVALUE "y" (LocalVarMode 0))) (TT EInt (CONST 29)))))
+
+Post order: 3 x < x 15 < && 15 y > && y 14 != && 
+TT EBul (AND (TT EBul (AND (TT EBul (AND (TT EBul (ETLt (TT EInt (CONST 3)) (TT EInt (RVALUE "x" (LocalVarMode 0))))) (TT EBul (ETLt (TT EInt (RVALUE "x" (LocalVarMode 0))) (TT EInt (CONST 15)))))) (TT EBul (ETGt (TT EInt (CONST 15)) (TT EInt (RVALUE "y" (LocalVarMode 0))))))) (TT EBul (ETNeq (TT EInt (RVALUE "y" (LocalVarMode 0))) (TT EInt (CONST 14)))))
+
+Post order: yes no != no false == && 
+TT EBul (AND (TT EBul (ETNeq (TT EInt (RVALUE "yes" (LocalVarMode 0))) (TT EInt (RVALUE "no" (LocalVarMode 0))))) (TT EBul (ETEq (TT EInt (RVALUE "no" (LocalVarMode 0))) (TT EBul (CONST 0)))))
+
+Post order: why yes == yes no != && no true != && 
+TT EBul (AND (TT EBul (AND (TT EBul (ETEq (TT EInt (RVALUE "why" (LocalVarMode 0))) (TT EInt (RVALUE "yes" (LocalVarMode 0))))) (TT EBul (ETNeq (TT EInt (RVALUE "yes" (LocalVarMode 0))) (TT EInt (RVALUE "no" (LocalVarMode 0))))))) (TT EBul (ETNeq (TT EInt (RVALUE "no" (LocalVarMode 0))) (TT EBul (CONST (-1))))))
+
+Post order: x 3 > y 4 < && 
+TT EBul (AND (TT EBul (ETGt (TT EInt (RVALUE "x" (LocalVarMode 0))) (TT EInt (CONST 3)))) (TT EBul (ETLt (TT EInt (RVALUE "y" (LocalVarMode 0))) (TT EInt (CONST 4)))))
+
+Post order: x 3 > y 4 < || 
+TT EBul (OR (TT EBul (ETGt (TT EInt (RVALUE "x" (LocalVarMode 0))) (TT EInt (CONST 3)))) (TT EBul (ETLt (TT EInt (RVALUE "y" (LocalVarMode 0))) (TT EInt (CONST 4)))))
+
+Post order: 5 w > w 3 >= && 2 x < x 7 < && && 39 y > y 12 >= && flag stop == stop true != && && || 
+TT EBul (OR (TT EBul (AND (TT EBul (AND (TT EBul (ETGt (TT EInt (CONST 5)) (TT EInt (RVALUE "w" (LocalVarMode 0))))) (TT EBul (ETGtEq (TT EInt (RVALUE "w" (LocalVarMode 0))) (TT EInt (CONST 3)))))) (TT EBul (AND (TT EBul (ETLt (TT EInt (CONST 2)) (TT EInt (RVALUE "x" (LocalVarMode 0))))) (TT EBul (ETLt (TT EInt (RVALUE "x" (LocalVarMode 0))) (TT EInt (CONST 7)))))))) (TT EBul (AND (TT EBul (AND (TT EBul (ETGt (TT EInt (CONST 39)) (TT EInt (RVALUE "y" (LocalVarMode 0))))) (TT EBul (ETGtEq (TT EInt (RVALUE "y" (LocalVarMode 0))) (TT EInt (CONST 12)))))) (TT EBul (AND (TT EBul (ETEq (TT EInt (RVALUE "flag" (LocalVarMode 0))) (TT EInt (RVALUE "stop" (LocalVarMode 0))))) (TT EBul (ETNeq (TT EInt (RVALUE "stop" (LocalVarMode 0))) (TT EBul (CONST (-1))))))))))
+

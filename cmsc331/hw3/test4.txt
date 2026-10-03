@@ -1,0 +1,15 @@
+xy
+yx
+aaaxbbbyccc
+aaaybbbxccc
+xxxx
+yyyy
+xxyy
+yyxx
+aaaxbbbxcccyddd
+aaaybbbycccxddd
+aaa
+axa
+aya
+x
+y

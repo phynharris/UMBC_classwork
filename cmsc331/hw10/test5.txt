@@ -1,0 +1,45 @@
+Calling triangle1() with nested for loops:
+*
+**
+***
+****
+*****
+******
+*******
+********
+*
+**
+***
+****
+*****
+******
+*******
+********
+*********
+**********
+***********
+Calling triangle2() with for loop in while loop:
+*
+**
+***
+****
+*****
+******
+*******
+*
+**
+***
+****
+*****
+Calling triangle3() with while loop in for loop:
+*
+**
+***
+*
+**
+***
+****
+*****
+******
+
+<0> 

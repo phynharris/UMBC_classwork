@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Toy {
+ public:
+ void SetType(string type){
+   m_type = type;
+ }
+ void SetMaterial(string material){
+   m_material = material;
+ }
+ private:
+ string m_type;
+ string m_material;
+};
+class Phone : public Toy{
+public:
+  void MakeCall() {
+    cout << "You made a call!" << endl;
+  }
+};
+
+class Truck : public Toy{
+public:
+  void Zoom() {
+    cout << "Your truck zoomed all around." << endl;
+  }
+};
+
+int main () {
+  Truck myTruck;
+  myTruck.SetType("Tonka");
+  myTruck.SetMaterial("Steel");
+  Phone myPhone;
+  myPhone.SetType("Play Phone");
+  myPhone.SetMaterial("Plastic");
+
+  myTruck.Zoom();
+  myPhone.MakeCall();
+  return 0;
+}

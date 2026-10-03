@@ -1,0 +1,11 @@
+[
+TT EInt (PLUS (TT EInt (CONST 13)) (TT EInt (CONST 4))),
+TT EInt (MINUS (TT EInt (CONST 13)) (TT EInt (CONST 4))),
+TT EInt (TIMES (TT EInt (CONST 13)) (TT EInt (CONST 4))),
+TT EInt (DIVIDE (TT EInt (CONST 13)) (TT EInt (CONST 4))),
+TT EInt (MINUS (TT EInt (CONST 3)) (TT EInt (NEG (TT EInt (CONST 1))))),
+TT EInt (RVALUE "A" (LocalArrayItemMode 0 (TT EInt (PLUS (TT EInt (CONST 3)) (TT EInt (CONST 4)))))),
+TT EBul (RVALUE "B" (GlobalArrayItemMode (TT EInt (MINUS (TT EInt (CONST 9)) (TT EInt (CONST 7)))))),
+TT EBul (FUNC "foo" [TT EInt (TIMES (TT EInt (CONST 2)) (TT EInt (CONST 3))),TT EInt (TIMES (TT EInt (CONST 4)) (TT EInt (CONST 5))),TT EInt (DIVIDE (TT EInt (CONST 12)) (TT EInt (CONST 6)))]),
+TT EInt (FUNC "bar" [TT EInt (MINUS (TT EInt (MINUS (TT EInt (MINUS (TT EInt (CONST 10)) (TT EInt (CONST 8)))) (TT EInt (CONST 4)))) (TT EInt (CONST 1)))])
+]

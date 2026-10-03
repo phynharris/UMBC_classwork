@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+class Container {
+public:
+  int value;
+    Container( int amount ) { value = amount;
+        cout << "Value " << value << endl; };
+	  ~Container() { cout << " You just killed: " << value << endl; };
+	  };
+
+class ExamQuestion {
+public :
+  Container data;
+    ExamQuestion(int A) : data(A) { cout << "New Object\n";};
+      ExamQuestion( const ExamQuestion& X ) : data(X.data.value + 10)
+        { cout << "Special\n"; };
+	};
+
+void TrickyPart(ExamQuestion why){
+  ExamQuestion PartB = why;
+    cout << "After PartB\n";
+    }
+
+int main(){
+  ExamQuestion Answer(1);
+    cout << "Call TrickyPart\n";
+      TrickyPart(Answer);
+        cout << "end" << endl;
+	}

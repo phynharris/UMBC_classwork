@@ -1,0 +1,1 @@
+[TkId LocalVarId EInt "x",TkOp ":=",TkInt 3,TkOp "+",TkInt 4,TkPunc ";",TkId LocalVarId EInt "y",TkOp ":=",TkInt 7,TkOp "*",TkInt 9,TkPunc ";",TkId LocalVarId EInt "z",TkOp ":=",TkInt 4,TkOp "-",TkInt 2,TkPunc ";",TkEOF]

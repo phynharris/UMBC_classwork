@@ -1,0 +1,10 @@
+1,Espresso,2.50
+2,Americano,3.10
+3,Latte,4.25
+4,Cappuccino,4.10
+5,Mocha,4.95
+6,Flat White,4.35
+7,Macchiato,3.25
+8,Cortado,3.40
+9,Iced Coffee,3.00
+10,Cold Brew,3.85

@@ -1,0 +1,5 @@
+^[a-z]*[aeiou]+[a-z]*[aeiou]+[a-z]*[aeiou]+[a-z]*$
+^[^aeiou]*[aeiou][^aeiou]*[aeiou][^aeiou]*[aeiou][^aeiou]*$
+^([^aeiou]*[aeiou](([^aeiou]*[aeiou][^aeiou]*){2})*)$
+^(([a-z]*[x][a-z]*[y][a-z]*)|([a-z]*[y][a-z]*[x][a-z]*))$
+^([^x]|([x][^y]))*[x]*$

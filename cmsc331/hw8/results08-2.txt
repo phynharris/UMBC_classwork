@@ -1,0 +1,306 @@
+original tree: TT EInt (PLUS (TT EInt (RVALUE "x" (LocalVarMode 0))) (TT EInt (CONST 0)))
+
+original postorder: x 0 + 
+
+optimized tree: TT EInt (RVALUE "x" (LocalVarMode 0))
+
+optimized postorder: x 
+
+---------------------------------------------------------
+original tree: TT EInt (PLUS (TT EInt (CONST 0)) (TT EInt (RVALUE "x" (LocalVarMode 0))))
+
+original postorder: 0 x + 
+
+optimized tree: TT EInt (RVALUE "x" (LocalVarMode 0))
+
+optimized postorder: x 
+
+---------------------------------------------------------
+original tree: TT EInt (MINUS (TT EInt (RVALUE "x" (LocalVarMode 0))) (TT EInt (CONST 0)))
+
+original postorder: x 0 - 
+
+optimized tree: TT EInt (RVALUE "x" (LocalVarMode 0))
+
+optimized postorder: x 
+
+---------------------------------------------------------
+original tree: TT EInt (MINUS (TT EInt (CONST 0)) (TT EInt (RVALUE "x" (LocalVarMode 0))))
+
+original postorder: 0 x - 
+
+optimized tree: TT EInt (NEG (TT EInt (RVALUE "x" (LocalVarMode 0))))
+
+optimized postorder: x ~ 
+
+---------------------------------------------------------
+original tree: TT EInt (MINUS (TT EInt (PLUS (TT EInt (PLUS (TT EInt (RVALUE "a" (LocalVarMode 0))) (TT EInt (RVALUE "b" (LocalVarMode 0))))) (TT EInt (RVALUE "c" (LocalVarMode 0))))) (TT EInt (PLUS (TT EInt (PLUS (TT EInt (RVALUE "a" (LocalVarMode 0))) (TT EInt (RVALUE "b" (LocalVarMode 0))))) (TT EInt (RVALUE "c" (LocalVarMode 0))))))
+
+original postorder: a b + c + a b + c + - 
+
+optimized tree: TT EInt (CONST 0)
+
+optimized postorder: 0 
+
+---------------------------------------------------------
+original tree: TT EInt (TIMES (TT EInt (RVALUE "x" (LocalVarMode 0))) (TT EInt (CONST 1)))
+
+original postorder: x 1 * 
+
+optimized tree: TT EInt (RVALUE "x" (LocalVarMode 0))
+
+optimized postorder: x 
+
+---------------------------------------------------------
+original tree: TT EInt (TIMES (TT EInt (CONST 1)) (TT EInt (RVALUE "x" (LocalVarMode 0))))
+
+original postorder: 1 x * 
+
+optimized tree: TT EInt (RVALUE "x" (LocalVarMode 0))
+
+optimized postorder: x 
+
+---------------------------------------------------------
+original tree: TT EInt (TIMES (TT EInt (MINUS (TT EInt (CONST 0)) (TT EInt (CONST 1)))) (TT EInt (RVALUE "x" (LocalVarMode 0))))
+
+original postorder: 0 1 - x * 
+
+optimized tree: TT EInt (NEG (TT EInt (RVALUE "x" (LocalVarMode 0))))
+
+optimized postorder: x ~ 
+
+---------------------------------------------------------
+original tree: TT EInt (TIMES (TT EInt (RVALUE "x" (LocalVarMode 0))) (TT EInt (MINUS (TT EInt (CONST 0)) (TT EInt (CONST 1)))))
+
+original postorder: x 0 1 - * 
+
+optimized tree: TT EInt (NEG (TT EInt (RVALUE "x" (LocalVarMode 0))))
+
+optimized postorder: x ~ 
+
+---------------------------------------------------------
+original tree: TT EInt (NEG (TT EInt (TIMES (TT EInt (RVALUE "x" (LocalVarMode 0))) (TT EInt (MINUS (TT EInt (CONST 0)) (TT EInt (CONST 1)))))))
+
+original postorder: x 0 1 - * ~ 
+
+optimized tree: TT EInt (RVALUE "x" (LocalVarMode 0))
+
+optimized postorder: x 
+
+---------------------------------------------------------
+original tree: TT EInt (TIMES (TT EInt (RVALUE "x" (LocalVarMode 0))) (TT EInt (CONST 0)))
+
+original postorder: x 0 * 
+
+optimized tree: TT EInt (CONST 0)
+
+optimized postorder: 0 
+
+---------------------------------------------------------
+original tree: TT EInt (TIMES (TT EInt (CONST 0)) (TT EInt (RVALUE "x" (LocalVarMode 0))))
+
+original postorder: 0 x * 
+
+optimized tree: TT EInt (CONST 0)
+
+optimized postorder: 0 
+
+---------------------------------------------------------
+original tree: TT EInt (DIVIDE (TT EInt (RVALUE "x" (LocalVarMode 0))) (TT EInt (CONST 1)))
+
+original postorder: x 1 / 
+
+optimized tree: TT EInt (RVALUE "x" (LocalVarMode 0))
+
+optimized postorder: x 
+
+---------------------------------------------------------
+original tree: TT EInt (DIVIDE (TT EInt (RVALUE "x" (LocalVarMode 0))) (TT EInt (MINUS (TT EInt (CONST 0)) (TT EInt (CONST 1)))))
+
+original postorder: x 0 1 - / 
+
+optimized tree: TT EInt (NEG (TT EInt (RVALUE "x" (LocalVarMode 0))))
+
+optimized postorder: x ~ 
+
+---------------------------------------------------------
+original tree: TT EBul (AND (TT EBul (RVALUE "x" (LocalVarMode 0))) (TT EBul (CONST (-1))))
+
+original postorder: x? true && 
+
+optimized tree: TT EBul (RVALUE "x" (LocalVarMode 0))
+
+optimized postorder: x? 
+
+---------------------------------------------------------
+original tree: TT EBul (AND (TT EBul (CONST (-1))) (TT EBul (RVALUE "x" (LocalVarMode 0))))
+
+original postorder: true x? && 
+
+optimized tree: TT EBul (RVALUE "x" (LocalVarMode 0))
+
+optimized postorder: x? 
+
+---------------------------------------------------------
+original tree: TT EBul (AND (TT EBul (RVALUE "x" (LocalVarMode 0))) (TT EBul (CONST 0)))
+
+original postorder: x? false && 
+
+optimized tree: TT EBul (CONST 0)
+
+optimized postorder: false 
+
+---------------------------------------------------------
+original tree: TT EBul (AND (TT EBul (CONST 0)) (TT EBul (RVALUE "x" (LocalVarMode 0))))
+
+original postorder: false x? && 
+
+optimized tree: TT EBul (CONST 0)
+
+optimized postorder: false 
+
+---------------------------------------------------------
+original tree: TT EBul (OR (TT EBul (RVALUE "x" (LocalVarMode 0))) (TT EBul (CONST (-1))))
+
+original postorder: x? true || 
+
+optimized tree: TT EBul (CONST (-1))
+
+optimized postorder: true 
+
+---------------------------------------------------------
+original tree: TT EBul (OR (TT EBul (CONST (-1))) (TT EBul (RVALUE "x" (LocalVarMode 0))))
+
+original postorder: true x? || 
+
+optimized tree: TT EBul (CONST (-1))
+
+optimized postorder: true 
+
+---------------------------------------------------------
+original tree: TT EBul (OR (TT EBul (RVALUE "x" (LocalVarMode 0))) (TT EBul (CONST 0)))
+
+original postorder: x? false || 
+
+optimized tree: TT EBul (RVALUE "x" (LocalVarMode 0))
+
+optimized postorder: x? 
+
+---------------------------------------------------------
+original tree: TT EBul (OR (TT EBul (CONST 0)) (TT EBul (RVALUE "x" (LocalVarMode 0))))
+
+original postorder: false x? || 
+
+optimized tree: TT EBul (RVALUE "x" (LocalVarMode 0))
+
+optimized postorder: x? 
+
+---------------------------------------------------------
+original tree: TT EBul (ETEq (TT EBul (RVALUE "x" (LocalVarMode 0))) (TT EBul (CONST (-1))))
+
+original postorder: x? true == 
+
+optimized tree: TT EBul (RVALUE "x" (LocalVarMode 0))
+
+optimized postorder: x? 
+
+---------------------------------------------------------
+original tree: TT EBul (ETEq (TT EBul (CONST (-1))) (TT EBul (RVALUE "x" (LocalVarMode 0))))
+
+original postorder: true x? == 
+
+optimized tree: TT EBul (RVALUE "x" (LocalVarMode 0))
+
+optimized postorder: x? 
+
+---------------------------------------------------------
+original tree: TT EBul (ETEq (TT EBul (RVALUE "x" (LocalVarMode 0))) (TT EBul (CONST 0)))
+
+original postorder: x? false == 
+
+optimized tree: TT EBul (NEG (TT EBul (RVALUE "x" (LocalVarMode 0))))
+
+optimized postorder: x? ~ 
+
+---------------------------------------------------------
+original tree: TT EBul (ETEq (TT EBul (CONST 0)) (TT EBul (RVALUE "x" (LocalVarMode 0))))
+
+original postorder: false x? == 
+
+optimized tree: TT EBul (NEG (TT EBul (RVALUE "x" (LocalVarMode 0))))
+
+optimized postorder: x? ~ 
+
+---------------------------------------------------------
+original tree: TT EBul (ETNeq (TT EBul (RVALUE "x" (LocalVarMode 0))) (TT EBul (CONST (-1))))
+
+original postorder: x? true != 
+
+optimized tree: TT EBul (NEG (TT EBul (RVALUE "x" (LocalVarMode 0))))
+
+optimized postorder: x? ~ 
+
+---------------------------------------------------------
+original tree: TT EBul (ETNeq (TT EBul (CONST (-1))) (TT EBul (RVALUE "x" (LocalVarMode 0))))
+
+original postorder: true x? != 
+
+optimized tree: TT EBul (NEG (TT EBul (RVALUE "x" (LocalVarMode 0))))
+
+optimized postorder: x? ~ 
+
+---------------------------------------------------------
+original tree: TT EBul (ETNeq (TT EBul (RVALUE "x" (LocalVarMode 0))) (TT EBul (CONST 0)))
+
+original postorder: x? false != 
+
+optimized tree: TT EBul (RVALUE "x" (LocalVarMode 0))
+
+optimized postorder: x? 
+
+---------------------------------------------------------
+original tree: TT EBul (NEG (TT EBul (NEG (TT EBul (ETLt (TT EInt (RVALUE "x" (LocalVarMode 0))) (TT EInt (CONST 5)))))))
+
+original postorder: x 5 < ~ ~ 
+
+optimized tree: TT EBul (ETLt (TT EInt (RVALUE "x" (LocalVarMode 0))) (TT EInt (CONST 5)))
+
+optimized postorder: x 5 < 
+
+---------------------------------------------------------
+original tree: TT EBul (RVALUE "A" (LocalArrayItemMode 0 (TT EInt (PLUS (TT EInt (TIMES (TT EInt (CONST 1)) (TT EInt (RVALUE "x" (LocalVarMode 0))))) (TT EInt (TIMES (TT EInt (CONST 0)) (TT EInt (RVALUE "y" (LocalVarMode 0)))))))))
+
+original postorder: 1 x * 0 y * + A?[] 
+
+optimized tree: TT EBul (RVALUE "A" (LocalArrayItemMode 0 (TT EInt (RVALUE "x" (LocalVarMode 0)))))
+
+optimized postorder: x A?[] 
+
+---------------------------------------------------------
+original tree: TT EInt (RVALUE "B" (GlobalArrayItemMode (TT EInt (PLUS (TT EInt (TIMES (TT EInt (CONST 1)) (TT EInt (RVALUE "x" (LocalVarMode 0))))) (TT EInt (TIMES (TT EInt (CONST 0)) (TT EInt (RVALUE "y" (LocalVarMode 0)))))))))
+
+original postorder: 1 x * 0 y * + &B[] 
+
+optimized tree: TT EInt (RVALUE "B" (GlobalArrayItemMode (TT EInt (RVALUE "x" (LocalVarMode 0)))))
+
+optimized postorder: x &B[] 
+
+---------------------------------------------------------
+original tree: TT EInt (FUNC "foo" [TT EInt (TIMES (TT EInt (CONST 1)) (TT EInt (RVALUE "x" (LocalVarMode 0)))),TT EInt (TIMES (TT EInt (CONST 0)) (TT EInt (RVALUE "y" (LocalVarMode 0)))),TT EInt (MINUS (TT EInt (RVALUE "z" (LocalVarMode 0))) (TT EInt (CONST 0)))])
+
+original postorder: 1 x * 0 y * z 0 - @foo 
+
+optimized tree: TT EInt (FUNC "foo" [TT EInt (RVALUE "x" (LocalVarMode 0)),TT EInt (CONST 0),TT EInt (RVALUE "z" (LocalVarMode 0))])
+
+optimized postorder: x 0 z @foo 
+
+---------------------------------------------------------
+original tree: TT EBul (FUNC "foo" [TT EInt (TIMES (TT EInt (CONST 1)) (TT EInt (RVALUE "x" (LocalVarMode 0)))),TT EInt (TIMES (TT EInt (CONST 0)) (TT EInt (RVALUE "y" (LocalVarMode 0)))),TT EInt (MINUS (TT EInt (RVALUE "z" (LocalVarMode 0))) (TT EInt (CONST 0)))])
+
+original postorder: 1 x * 0 y * z 0 - @foo? 
+
+optimized tree: TT EBul (FUNC "foo" [TT EInt (RVALUE "x" (LocalVarMode 0)),TT EInt (CONST 0),TT EInt (RVALUE "z" (LocalVarMode 0))])
+
+optimized postorder: x 0 z @foo? 
+
+---------------------------------------------------------

@@ -1,0 +1,144 @@
+original tree: TT EBul (ETLt (TT EInt (CONST 3)) (TT EInt (CONST 5)))
+
+original postorder: 3 5 < 
+
+optimized tree: TT EBul (CONST (-1))
+
+optimized postorder: true 
+
+---------------------------------------------------------
+original tree: TT EBul (ETLtEq (TT EInt (CONST 3)) (TT EInt (CONST 5)))
+
+original postorder: 3 5 <= 
+
+optimized tree: TT EBul (CONST (-1))
+
+optimized postorder: true 
+
+---------------------------------------------------------
+original tree: TT EBul (ETEq (TT EInt (CONST 3)) (TT EInt (CONST 5)))
+
+original postorder: 3 5 == 
+
+optimized tree: TT EBul (CONST 0)
+
+optimized postorder: false 
+
+---------------------------------------------------------
+original tree: TT EBul (ETNeq (TT EInt (CONST 3)) (TT EInt (CONST 5)))
+
+original postorder: 3 5 != 
+
+optimized tree: TT EBul (CONST (-1))
+
+optimized postorder: true 
+
+---------------------------------------------------------
+original tree: TT EBul (ETGtEq (TT EInt (CONST 3)) (TT EInt (CONST 5)))
+
+original postorder: 3 5 >= 
+
+optimized tree: TT EBul (CONST 0)
+
+optimized postorder: false 
+
+---------------------------------------------------------
+original tree: TT EBul (ETGt (TT EInt (CONST 3)) (TT EInt (CONST 5)))
+
+original postorder: 3 5 > 
+
+optimized tree: TT EBul (CONST 0)
+
+optimized postorder: false 
+
+---------------------------------------------------------
+original tree: TT EBul (ETLt (TT EInt (CONST 7)) (TT EInt (CONST 5)))
+
+original postorder: 7 5 < 
+
+optimized tree: TT EBul (CONST 0)
+
+optimized postorder: false 
+
+---------------------------------------------------------
+original tree: TT EBul (ETLtEq (TT EInt (CONST 7)) (TT EInt (CONST 5)))
+
+original postorder: 7 5 <= 
+
+optimized tree: TT EBul (CONST 0)
+
+optimized postorder: false 
+
+---------------------------------------------------------
+original tree: TT EBul (ETEq (TT EInt (CONST 7)) (TT EInt (CONST 7)))
+
+original postorder: 7 7 == 
+
+optimized tree: TT EBul (CONST (-1))
+
+optimized postorder: true 
+
+---------------------------------------------------------
+original tree: TT EBul (ETNeq (TT EInt (CONST 7)) (TT EInt (CONST 7)))
+
+original postorder: 7 7 != 
+
+optimized tree: TT EBul (CONST 0)
+
+optimized postorder: false 
+
+---------------------------------------------------------
+original tree: TT EBul (ETGtEq (TT EInt (CONST 7)) (TT EInt (CONST 5)))
+
+original postorder: 7 5 >= 
+
+optimized tree: TT EBul (CONST (-1))
+
+optimized postorder: true 
+
+---------------------------------------------------------
+original tree: TT EBul (ETGt (TT EInt (CONST 7)) (TT EInt (CONST 5)))
+
+original postorder: 7 5 > 
+
+optimized tree: TT EBul (CONST (-1))
+
+optimized postorder: true 
+
+---------------------------------------------------------
+original tree: TT EBul (ETEq (TT EBul (CONST (-1))) (TT EBul (CONST (-1))))
+
+original postorder: true true == 
+
+optimized tree: TT EBul (CONST (-1))
+
+optimized postorder: true 
+
+---------------------------------------------------------
+original tree: TT EBul (ETEq (TT EBul (CONST 0)) (TT EBul (CONST (-1))))
+
+original postorder: false true == 
+
+optimized tree: TT EBul (CONST 0)
+
+optimized postorder: false 
+
+---------------------------------------------------------
+original tree: TT EBul (ETNeq (TT EBul (CONST (-1))) (TT EBul (CONST (-1))))
+
+original postorder: true true != 
+
+optimized tree: TT EBul (CONST 0)
+
+optimized postorder: false 
+
+---------------------------------------------------------
+original tree: TT EBul (ETNeq (TT EBul (CONST (-1))) (TT EBul (CONST 0)))
+
+original postorder: true false != 
+
+optimized tree: TT EBul (CONST (-1))
+
+optimized postorder: true 
+
+---------------------------------------------------------

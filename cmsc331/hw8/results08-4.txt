@@ -1,0 +1,54 @@
+original tree: TT EInt (MINUS (TT EInt (TIMES (TT EInt (PLUS (TT EInt (CONST 3)) (TT EInt (CONST 4)))) (TT EInt (MINUS (TT EInt (CONST 9)) (TT EInt (CONST 7)))))) (TT EInt (CONST 10)))
+
+original postorder: 3 4 + 9 7 - * 10 - 
+
+optimized tree: TT EInt (CONST 4)
+
+optimized postorder: 4 
+
+---------------------------------------------------------
+original tree: TT EInt (TIMES (TT EInt (MINUS (TT EInt (TIMES (TT EInt (PLUS (TT EInt (CONST 3)) (TT EInt (CONST 4)))) (TT EInt (MINUS (TT EInt (CONST 9)) (TT EInt (CONST 7)))))) (TT EInt (CONST 13)))) (TT EInt (MINUS (TT EInt (RVALUE "x" (LocalVarMode 0))) (TT EInt (CONST 0)))))
+
+original postorder: 3 4 + 9 7 - * 13 - x 0 - * 
+
+optimized tree: TT EInt (RVALUE "x" (LocalVarMode 0))
+
+optimized postorder: x 
+
+---------------------------------------------------------
+original tree: TT EBul (ETLt (TT EInt (TIMES (TT EInt (MINUS (TT EInt (TIMES (TT EInt (PLUS (TT EInt (CONST 3)) (TT EInt (CONST 4)))) (TT EInt (MINUS (TT EInt (CONST 9)) (TT EInt (CONST 7)))))) (TT EInt (CONST 14)))) (TT EInt (RVALUE "x" (LocalVarMode 0))))) (TT EInt (DIVIDE (TT EInt (PLUS (TT EInt (PLUS (TT EInt (CONST 2)) (TT EInt (CONST 4)))) (TT EInt (CONST 5)))) (TT EInt (CONST 10)))))
+
+original postorder: 3 4 + 9 7 - * 14 - x * 2 4 + 5 + 10 / < 
+
+optimized tree: TT EBul (CONST (-1))
+
+optimized postorder: true 
+
+---------------------------------------------------------
+original tree: TT EBul (ETEq (TT EBul (ETLt (TT EInt (CONST 3)) (TT EInt (CONST 5)))) (TT EBul (ETGt (TT EInt (CONST 7)) (TT EInt (CONST 9)))))
+
+original postorder: 3 5 < 7 9 > == 
+
+optimized tree: TT EBul (CONST 0)
+
+optimized postorder: false 
+
+---------------------------------------------------------
+original tree: TT EBul (AND (TT EBul (ETEq (TT EBul (ETLt (TT EInt (CONST 3)) (TT EInt (CONST 2)))) (TT EBul (ETGt (TT EInt (CONST 7)) (TT EInt (CONST 9)))))) (TT EBul (ETEq (TT EBul (ETGt (TT EInt (CONST 7)) (TT EInt (CONST 9)))) (TT EBul (ETGtEq (TT EInt (CONST 8)) (TT EInt (CONST 8)))))))
+
+original postorder: 3 2 < 7 9 > == 7 9 > 8 8 >= == && 
+
+optimized tree: TT EBul (CONST 0)
+
+optimized postorder: false 
+
+---------------------------------------------------------
+original tree: TT EBul (AND (TT EBul (AND (TT EBul (ETEq (TT EBul (ETLt (TT EInt (CONST 3)) (TT EInt (CONST 2)))) (TT EBul (ETGt (TT EInt (CONST 7)) (TT EInt (CONST 9)))))) (TT EBul (ETEq (TT EBul (ETGt (TT EInt (CONST 7)) (TT EInt (CONST 9)))) (TT EBul (ETGtEq (TT EInt (CONST 8)) (TT EInt (CONST 8)))))))) (TT EBul (ETNeq (TT EBul (ETGtEq (TT EInt (CONST 8)) (TT EInt (CONST 8)))) (TT EBul (OR (TT EBul (OR (TT EBul (OR (TT EBul (CONST (-1))) (TT EBul (RVALUE "x" (LocalVarMode 0))))) (TT EBul (RVALUE "y" (LocalVarMode 0))))) (TT EBul (RVALUE "z" (LocalVarMode 0))))))))
+
+original postorder: 3 2 < 7 9 > == 7 9 > 8 8 >= == && 8 8 >= true x? || y? || z? || != && 
+
+optimized tree: TT EBul (CONST 0)
+
+optimized postorder: false 
+
+---------------------------------------------------------

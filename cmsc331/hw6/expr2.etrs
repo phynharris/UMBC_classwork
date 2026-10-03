@@ -1,0 +1,7 @@
+TT EInt (RVALUE "B" (LocalArrayItemMode 0 (TT EBul (ETLt (TT EInt (CONST 7)) (TT EInt (CONST 2))))))
+TT EBul (AND (TT EInt (PLUS (TT EInt (CONST 3)) (TT EBul (ETLt (TT EInt (CONST 7)) (TT EInt (CONST 2)))))) (TT EInt (PLUS (TT EInt (RVALUE "x" (LocalVarMode 0))) (TT EInt (CONST 4)))))
+TT EInt (PLUS (TT EInt (MINUS (TT EBul (RVALUE "w" (LocalVarMode 0))) (TT EBul (RVALUE "x" (LocalVarMode 0))))) (TT EInt (TIMES (TT EBul (RVALUE "y" (LocalVarMode 0))) (TT EBul (RVALUE "z" (LocalVarMode 0))))))
+TT EBul (ETNeq (TT EInt (MINUS (TT EInt (MINUS (TT EInt (CONST 7)) (TT EInt (CONST 4)))) (TT EInt (RVALUE "x" (LocalVarMode 0))))) (TT EBul (CONST 0)))
+TT EBul (ETEq (TT EBul (AND (TT EBul (RVALUE "x" (LocalVarMode 0))) (TT EBul (RVALUE "y" (LocalVarMode 0))))) (TT EInt (PLUS (TT EInt (RVALUE "a" (LocalVarMode 0))) (TT EInt (CONST 3)))))
+TT EInt (FUNC "callme" [TT EInt (PLUS (TT EInt (CONST 7)) (TT EBul (CONST (-1)))),TT EInt (RVALUE "B" (LocalArrayItemMode 0 (TT EBul (RVALUE "x" (LocalVarMode 0))))),TT EInt (PLUS (TT EInt (CONST 3)) (TT EBul (AND (TT EInt (CONST 5)) (TT EInt (CONST 4)))))])
+TT EInt (FUNC "callme" [TT EInt (PLUS (TT EInt (CONST 7)) (TT EBul (CONST (-1)))),TT EInt (FUNC "again" [TT EInt (RVALUE "B" (LocalArrayItemMode 0 (TT EBul (RVALUE "x" (LocalVarMode 0))))),TT EInt (PLUS (TT EInt (CONST 3)) (TT EBul (AND (TT EInt (CONST 5)) (TT EInt (CONST 4)))))])])

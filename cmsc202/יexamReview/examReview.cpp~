@@ -1,0 +1,92 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+/*
+
+  1a When a cointrol statement is inside of another (such as for, if, while), then it is nested
+  1b \n and \t are examples of escape sequences
+  1c int myArray[12] = {1, 2, 3, 6, 5, 4, 7, 1, 2} has 12 index variables. If you initialize at least one element, the rest become 0 for an array of ints.
+  1d * is the dereference operator
+  1e If nothing terminates a while loop, it is an infinite loop
+  1f If a case value i snot met in a switch statement, then it's default label is executed
+  1g You need to use <cstring> for cstring comparison and manipulation
+  1h :: is the scopre resolution operator
+  1i To change a value form one data type to another, you use type cast
+  1j cin >> extraction operator, cout << insertion operator
+  1k All members of clases are private by default
+  1l If a variable is passed by reference, then if the formal parameter changes, so too does the actual parameter
+  1m You need <iomanip> to use setw
+  1n If multiple functions share the same name, then it is considered overloaded
+  1o The scope determines where the variable can be used
+  1p ==, <=, >=, <, <, !=
+
+ */
+
+void divide(int num1, int num2 = 5);
+double average(int scores[]);
+
+struct Student{
+  string name;
+  int stuID;
+};
+
+const int NUM_SCORES = 3;
+
+int main(){
+
+  divide(20);
+
+  //#4
+  int avg;
+  int scores[NUM_SCORES];
+   for(int i = 0; i < NUM_SCORES; i++){
+     cout << "Enter score #" << i+1 << ":" << endl;
+     cin >> scores[i];
+   }
+
+   avg = average(scores);
+   
+   cout << "The average score was: " << avg << endl;
+
+   //5c
+   int x = 8 , y = 10;
+   int *ptr1 = &x;
+   int *ptr2 = &y;
+   ptr1 = ptr2;
+   *ptr2 = 12;
+   cout << *ptr1 << endl;
+
+   //5d
+   const int NUM_INPUT = 3;
+   int counter = 0;
+   Student myClass[NUM_INPUT];
+   for(int i = 0; i < NUM_INPUT; i++){
+     cout << "Enter name:" << endl;
+     getline(cin, myClass[i].name);
+     cout << "Enter Student ID:" << endl;
+     cin >> myClass[i].stuID;
+     if(cin.peek() == '\n')
+       cin.ignore();
+   }
+   while(counter < NUM_INPUT){
+     cout <<  myClass[counter].name << " "
+	  << myClass[counter].stuID << endl;
+     ++counter;
+   }
+
+  return 0;
+}
+
+void divide(int num1, int num2){
+  cout << num1/num2 << endl;
+
+}
+
+double average(int scores[]){
+  int total = 0;
+  for(int i = 0;i < NUM_SCORES; i++){
+    total += scores[i];
+  }
+  return (total/NUM_SCORES);
+}

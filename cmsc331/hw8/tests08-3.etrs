@@ -1,0 +1,18 @@
+[
+TT EBul (ETLt (TT EInt (CONST 3)) (TT EInt (CONST 5))),
+TT EBul (ETLtEq (TT EInt (CONST 3)) (TT EInt (CONST 5))),
+TT EBul (ETEq (TT EInt (CONST 3)) (TT EInt (CONST 5))),
+TT EBul (ETNeq (TT EInt (CONST 3)) (TT EInt (CONST 5))),
+TT EBul (ETGtEq (TT EInt (CONST 3)) (TT EInt (CONST 5))),
+TT EBul (ETGt (TT EInt (CONST 3)) (TT EInt (CONST 5))),
+TT EBul (ETLt (TT EInt (CONST 7)) (TT EInt (CONST 5))),
+TT EBul (ETLtEq (TT EInt (CONST 7)) (TT EInt (CONST 5))),
+TT EBul (ETEq (TT EInt (CONST 7)) (TT EInt (CONST 7))),
+TT EBul (ETNeq (TT EInt (CONST 7)) (TT EInt (CONST 7))),
+TT EBul (ETGtEq (TT EInt (CONST 7)) (TT EInt (CONST 5))),
+TT EBul (ETGt (TT EInt (CONST 7)) (TT EInt (CONST 5))),
+TT EBul (ETEq (TT EBul (CONST (-1))) (TT EBul (CONST (-1)))),
+TT EBul (ETEq (TT EBul (CONST 0)) (TT EBul (CONST (-1)))),
+TT EBul (ETNeq (TT EBul (CONST (-1))) (TT EBul (CONST (-1)))),
+TT EBul (ETNeq (TT EBul (CONST (-1))) (TT EBul (CONST 0)))
+]

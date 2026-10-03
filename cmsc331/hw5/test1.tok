@@ -1,0 +1,1 @@
+[TkError,TkInt 3,TkId LocalVarId EInt "x",TkComp ">",TkId LocalArrayId EInt "R",TkInt 3,TkId LocalArrayId EInt "R",TkError,TkOp "*",TkId LocalArrayId EInt "Rdrop",TkPunc ";",TkEOF]

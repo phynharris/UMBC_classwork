@@ -1,0 +1,16 @@
+## constant folding comparisons ##   3 <   5
+## constant folding comparisons ##   3 <=  5
+## constant folding comparisons ##   3 ==  5
+## constant folding comparisons ##   3 !=  5
+## constant folding comparisons ##   3 >=  5
+## constant folding comparisons ##   3 >   5
+## constant folding comparisons ##   7 <   5
+## constant folding comparisons ##   7 <=  5
+## constant folding comparisons ##   7 ==  7
+## constant folding comparisons ##   7 !=  7
+## constant folding comparisons ##   7 >=  5
+## constant folding comparisons ##   7 >   5
+## constant folding comparisons ##  true  == true
+## constant folding comparisons ##  false == true
+## constant folding comparisons ##  true  != true
+## constant folding comparisons ##  true  != false

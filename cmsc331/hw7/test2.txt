@@ -1,0 +1,64 @@
+Trailing tokens not parsed:
+[TkOp "+",TkEOF]
+parsed expression tree: Post order: 3 4 + 
+TT EInt (PLUS (TT EInt (CONST 3)) (TT EInt (CONST 4)))
+
+Syntax Error encountered!!
+Post order: NADA 
+parsed expression tree: TT NADA EError
+
+Trailing tokens not parsed:
+[TkOp "*",TkEOF]
+parsed expression tree: Post order: 3 4 * 
+TT EInt (TIMES (TT EInt (CONST 3)) (TT EInt (CONST 4)))
+
+Trailing tokens not parsed:
+[TkId LocalArrayId EInt "A",TkPunc "[",TkInt 17,TkPunc "]",TkEOF]
+parsed expression tree: Post order: 3 4 5 * + 
+TT EInt (PLUS (TT EInt (CONST 3)) (TT EInt (TIMES (TT EInt (CONST 4)) (TT EInt (CONST 5)))))
+
+Trailing tokens not parsed:
+[TkId FPId EInt "foo",TkPunc "(",TkPunc ")",TkEOF]
+parsed expression tree: Post order: 3 4 + 
+TT EInt (PLUS (TT EInt (CONST 3)) (TT EInt (CONST 4)))
+
+Trailing tokens not parsed:
+[TkComp "<=",TkEOF]
+parsed expression tree: Post order: x y < 
+TT EBul (ETLt (TT EInt (RVALUE "x" (LocalVarMode 0))) (TT EInt (RVALUE "y" (LocalVarMode 0))))
+
+Syntax Error encountered!!
+Post order: NADA 
+parsed expression tree: TT NADA EError
+
+Syntax Error encountered!!
+Post order: NADA 
+parsed expression tree: TT NADA EError
+
+Trailing tokens not parsed:
+[TkPunc ")",TkEOF]
+parsed expression tree: Post order: 7 9 @foo 
+TT EInt (FUNC "foo" [TT EInt (CONST 7),TT EInt (CONST 9)])
+
+Syntax Error encountered!!
+Post order: NADA 
+parsed expression tree: TT NADA EError
+
+Syntax Error encountered!!
+Post order: NADA 
+parsed expression tree: TT NADA EError
+
+Syntax Error encountered!!
+Post order: NADA 
+parsed expression tree: TT NADA EError
+
+Trailing tokens not parsed:
+[TkPunc "[",TkInt 7,TkPunc ",",TkInt 9,TkPunc "]",TkEOF]
+parsed expression tree: Post order: x 
+TT EInt (RVALUE "x" (LocalVarMode 0))
+
+Trailing tokens not parsed:
+[TkPunc "(",TkInt 7,TkPunc ",",TkInt 9,TkPunc ")",TkEOF]
+parsed expression tree: Post order: x 
+TT EInt (RVALUE "x" (LocalVarMode 0))
+

@@ -1,0 +1,1 @@
+[FDEF "main" [PRINTLNSTR 0 "Hello World",PRINTSTR 1 "Good-bye, ",PRINTLNSTR 2 "Blue skies"] 0 0]

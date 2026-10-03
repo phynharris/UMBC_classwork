@@ -1,0 +1,6 @@
+TT EInt (PLUS (TT EInt (CONST 3)) (TT EInt (TIMES (TT EInt (CONST 4)) (TT EInt (CONST 5)))))
+TT EBul (OR (TT EBul (RVALUE "a" (LocalVarMode 0))) (TT EBul (ETLt (TT EInt (RVALUE "x" (LocalVarMode 0))) (TT EInt (CONST 7)))))
+TT EInt (MINUS (TT EInt (RVALUE "A" (GlobalArrayItemMode (TT EInt (CONST 7))))) (TT EInt (RVALUE "B" (LocalArrayItemMode 0 (TT EInt (RVALUE "i" (LocalVarMode 0)))))))
+TT EInt (FUNC "function" [TT EInt (CONST 1),TT EInt (CONST 2),TT EInt (CONST 3),TT EInt (CONST 4)])
+TT EBul (ETEq (TT EInt (RVALUE "x" (LocalVarMode 0))) (TT EInt (CONST 3)))
+TT EBul (ETNeq (TT EBul (RVALUE "flag" (LocalVarMode 0))) (TT EBul (CONST 0)))
